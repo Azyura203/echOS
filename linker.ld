@@ -1,30 +1,15 @@
-/* Linker.ld - Layout for echOS kernel binary */
-
+OUTPUT_FORMAT(elf32-i386)
 ENTRY(_start)
 
 SECTIONS {
-	/* Load everything at 1 MB (judt above real-mode memory)
-	.=1M;
+    . = 1M;
 
-	/* Code section */
-	.text : {
-	   *(.multiboot)	/*Multiboot header*/
-	   *(.text*)		/*Bootloader + kernel code*/
-	}
-	
-	/* Read-only data */
-	.rodata : {
-	   *(.rodata*)
-	}
+    .text : {
+        KEEP(*(.text.multiboot))   /* Multiboot header — must be early */
+        *(.text*)                  /* Rest of code */
+    }
 
-	/* Initialized data */
-	.data : {
-	   *(.data*)
-	}
-
-	/* Uninitialized data (e.g., .bss, our stack) */
-	.bss : {
-	   *(.bss*)
-	   *(COMMON)
-	}
+    .rodata : { *(.rodata*) }
+    .data   : { *(.data*) }
+    .bss    : { *(.bss*) *(COMMON) }
 }
