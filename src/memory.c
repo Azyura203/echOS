@@ -33,3 +33,21 @@ int strcmp(const char *a, const char *b) {
     }
     return *(const unsigned char*)a - *(const unsigned char*)b;
 }
+
+static uint32_t alloc_base = 0;
+static uint32_t alloc_limit = 0;
+
+void init_allocator(uint32_t base, uint32_t length) {
+	alloc_base = base;
+	alloc_limit = base + length;
+}
+
+void* kmalloc(uint32_t size) {
+	if (alloc_base + size > alloc_limit)
+		return 0; //out of memory
+	
+
+	void* result = (void*)alloc_base;
+	alloc_base += size;
+	return result;
+}

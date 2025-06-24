@@ -1,58 +1,57 @@
 # echOS 🔧🧠
 
-> echOS v1.0.0 - A minimal OS bootloader and kernel written from scratch in Assembly and C
+> A minimal OS bootloader and kernel written from scratch in Assembly and C.
+
+---
 
 ## 🚀 Boot Process
-- GRUB loads multiboot-compliant boot.asm
-- Kernel written in C prints message to video memory
-- Fully bootable `.iso` built with `grub-mkrescue`
+- GRUB loads a multiboot-compliant `boot.asm`
+- `kernel.c` (written in C) is loaded and prints messages to VGA memory
+- Built with `grub-mkrescue` to generate `.iso`
 
-## ✅ Version: 1.0.0
-- Assembly: `boot.asm` loads the kernel
-- Kernel: `kernel.c` prints to VGA memory
-- Custom linker: `linker.ld`
-- Build system: `Makefile`
+---
 
-## 🐛 Fixes
-- grub.cfg not generated ➜ fixed with Makefile target
-- toolchain errors ➜ solved by installing `nasm`, `xorriso`, `grub-mkrescue`
-- cleaned up Makefile formatting and build output
+## ✅ Current Version: `v1.4.0-beta`
 
-## 💡 Next Plans
-- Add keyboard input
-- Cursor movement
-- Basic memory map
+### Architecture
+- Assembly Bootloader
+- C Kernel
+- Multiboot-compliant with GRUB
+- Basic shell & memory management
 
-✅ echOS v1.2.0 - "The Awakening"
+### Files
+- `boot.asm` - GRUB-compatible assembly bootloader
+- `kernel.c` - Main kernel logic
+- `linker.ld` - Linker script
+- `Makefile` - Build instructions
 
-Release Date: 2025-06-23
-🚀 Features
+---
 
-    Implemented Multiboot-compliant bootloader using NASM.
+## 📦 Requirements
+- `nasm`
+- `xorriso`
+- `grub-mkrescue`
+- Cross Compiler (`i686-elf-*`)
 
-    Set up proper linker.ld with correct multiboot alignment.
+---
 
-    Basic VGA driver: screen clearing and text output working.
+## 🐛 Fixes in Early Versions
+- Fixed `grub.cfg` not generating
+- Fixed multiboot magic mismatch
+- Cleaned up Makefile and VGA bugs
 
-    Kernel entry (C) now receives Multiboot info properly.
+---
 
-    Printed memory map with basic number formatting (no stdlib 🛠️).
+## 💡 Upcoming
+- Paging
+- Dynamic heap allocator
+- Interrupt handling (IDT)
+- Basic filesystem
 
-🐛 Fixes
+---
 
-    Fixed boot.asm parameter order (🤦 pushed eax, ebx → should be ebx, eax).
-
-    Fixed linker section .multiboot not appearing.
-
-    Fixed multiboot magic number mismatch.
-
-    No longer stuck in the bootloop (hallelujah 🙏).
-
-🔧 Notes
-
-    grub-file --is-x86-multiboot ✅ passes
-
-    Next up: paging, heap, IDT, or drivers 👀
+## 🧠 Fun Fact
+> echOS uses zero dependencies. Pure C and Assembly. From bits to boot. 💥
 
 
 

@@ -7,7 +7,7 @@ LD      = $(ARCH)-ld
 CFLAGS  = -ffreestanding -O2 -Wall -Wextra
 LDFLAGS = -T linker.ld
 
-OBJ     = src/boot.o src/kernel.o src/vga.o src/memory.o
+OBJ     = src/boot.o src/kernel.o src/vga.o src/memory.o src/pmm.o src/keyboard.o src/shell.o
 ISO_DIR = iso
 ISO     = $(ISO_DIR)/echOS.iso
 KERNEL  = kernel.elf
