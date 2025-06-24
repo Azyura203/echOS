@@ -1,5 +1,5 @@
 
-![Uploading echOS.png…]()
+![Uploading echOS](https://github.com/Azyura203/echOS/blob/e4ecd5e214ddb811843029c0bafee7beb7168398/echOS.png)
 # echOS 🔧🧠
 
 
