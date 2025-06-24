@@ -1,4 +1,7 @@
+
+![Uploading echOS.png…]()
 # echOS 🔧🧠
+
 
 > A minimal OS bootloader and kernel written from scratch in Assembly and C.
 
